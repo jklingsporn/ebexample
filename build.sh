@@ -4,7 +4,6 @@ if [ -n "$1" ]; then
         now=$(date +"%Y-%m-%d_%H-%M-%S")
         tag="./target/app-$1-$now.zip"
         mvn clean install -P$1
-        mkdir target
         echo "web: ./run.sh" > target/Procfile
         echo "exec java \$JAVA_OPTS -jar app-$1.jar \$JAVA_ARGS" > target/run.sh
         chmod +x target/run.sh
